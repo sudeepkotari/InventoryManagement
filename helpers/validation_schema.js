@@ -7,6 +7,13 @@ const authSchema = Joi.object({
   books: Joi.object()
 })
 
+const loginSchema = Joi.object({
+  email: Joi.string().email().lowercase().required(),
+  password: Joi.string().min(2).required()
+});
+
+
 module.exports = {
   authSchema,
+  loginSchema
 }
